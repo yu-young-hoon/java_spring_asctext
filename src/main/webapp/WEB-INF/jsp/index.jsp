@@ -15,7 +15,7 @@
         </div>
         <div>
             <h1>출력묶음단위</h1>
-            <input name="unit" value="<c:out value="${result.outUnit}"></c:out>"/>
+            <input name="unit" type="number" value="<c:out value="${result.outUnit}"></c:out>"/>
         </div>
         <input type="submit" value="출력"/>
     </form>

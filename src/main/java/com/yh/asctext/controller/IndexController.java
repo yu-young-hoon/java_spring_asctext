@@ -32,7 +32,14 @@ public class IndexController {
 
         String text = request.getParameter("text");
         String unit = request.getParameter("unit");
-        ASCText ascText = solutionService.Sort(text, Integer.parseInt(unit));
+        int iunit;
+        try {
+            iunit = Integer.parseInt(unit);
+        } catch (NumberFormatException ex) {
+            iunit = 0;
+        }
+
+        ASCText ascText = solutionService.Sort(text, iunit);
 
         mav.setViewName("index");
         mav.addObject("result", ascText);

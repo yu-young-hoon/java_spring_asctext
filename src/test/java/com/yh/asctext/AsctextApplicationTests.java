@@ -99,4 +99,14 @@ public class AsctextApplicationTests {
 		assertThat(ascText.getResultText(), is("A0a7"));
 		assertThat(ascText.getTailText(), is("B9z"));
 	}
+
+	@Test
+	public void test9() {
+		ASCText ascText = solutionService.Sort("!#ㄹㅎㅈaB09Az7?", -1);
+
+		assertThat(ascText.getOriginText(), is("!#ㄹㅎㅈaB09Az7?"));
+		assertThat(ascText.getOutUnit(), is(1));
+		assertThat(ascText.getResultText(), is("A0a7B9z"));
+		assertThat(ascText.getTailText(), is(""));
+	}
 }

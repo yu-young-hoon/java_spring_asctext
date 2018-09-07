@@ -15,7 +15,10 @@ public class ASCText {
     }
 
     public int getOutUnit() {
-        return outUnit;
+        if(outUnit > 0)
+            return outUnit;
+        else
+            return 1;
     }
 
     public void setOutUnit(int outUnit) {

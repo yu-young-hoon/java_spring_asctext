@@ -17,6 +17,7 @@ public class SolutionService {
     public ASCText Sort(String text, int outUnit) {
         ASCText ascText = new ASCText();
         ascText.setOriginText(text);
+        ascText.setOutUnit(outUnit);
 
         text = logic.XSS(text);
 
@@ -27,10 +28,9 @@ public class SolutionService {
         Collections.sort(numbers);
 
         String mergedText = logic.Merge(chars, numbers);
-        String result = mergedText.substring(0, mergedText.length() - mergedText.length() % outUnit);
-        String tailText = mergedText.substring(mergedText.length() - mergedText.length() % outUnit);
+        String result = mergedText.substring(0, mergedText.length() - mergedText.length() % ascText.getOutUnit());
+        String tailText = mergedText.substring(mergedText.length() - mergedText.length() % ascText.getOutUnit());
 
-        ascText.setOutUnit(outUnit);
         ascText.setResultText(result);
         ascText.setTailText(tailText);
 
