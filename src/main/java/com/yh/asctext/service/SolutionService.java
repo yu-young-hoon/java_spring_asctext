@@ -1,20 +1,16 @@
 package com.yh.asctext.service;
 
-import com.yh.asctext.controller.IndexController;
 import com.yh.asctext.domain.ASCText;
 import com.yh.asctext.logic.Logic;
 import com.yh.asctext.logic.SortStrategy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 @Service
 public class SolutionService {
-    private static final Logger logger = LoggerFactory.getLogger(SolutionService.class);
-
     @Autowired
     private Logic logic;
 

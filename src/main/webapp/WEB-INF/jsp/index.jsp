@@ -19,13 +19,13 @@
         </div>
         <input type="submit" value="출력"/>
     </form>
-    <div>
+    <div style="background: rgb(240, 240, 240)">
         <h1>몫</h1>
         <div>
             <c:out value="${result.resultText}"/>
         </div>
     </div>
-    <div>
+    <div style="background: rgb(240, 240, 240)">
         <h1>나머지</h1>
         <di>
             <c:out value="${result.tailText}"/>
