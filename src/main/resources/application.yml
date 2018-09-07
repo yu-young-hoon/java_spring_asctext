@@ -4,3 +4,8 @@ logging:
     level:
         ROOT: INFO
         com.yh: ALL
+spring:
+    mvc:
+        view:
+            prefix: /WEB-INF/jsp/
+            suffix: .jsp
