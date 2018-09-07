@@ -8,6 +8,14 @@ import java.util.List;
 public class Logic {
     public String XSS(String text) {
         StringBuilder sb = new StringBuilder();
+        char[] textChars = text.toCharArray();
+        for (char ch : textChars) {
+            if (('A' <= ch && ch <= 'Z') ||
+                    ('a' <= ch && ch <= 'z') ||
+                    ('0' <= ch && ch <= '9')) {
+                sb.append(ch);
+            }
+        }
         return sb.toString();
     }
 
