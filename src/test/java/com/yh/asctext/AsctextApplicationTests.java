@@ -1,20 +1,16 @@
 package com.yh.asctext;
 
+import com.yh.asctext.domain.ASCText;
 import com.yh.asctext.logic.Logic;
 import com.yh.asctext.logic.SortStrategy;
 import com.yh.asctext.service.SolutionService;
-import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.temporal.ChronoField;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -31,6 +27,9 @@ public class AsctextApplicationTests {
 
 	@Autowired
 	private Logic logic;
+
+	@Autowired
+	private SolutionService solutionService;
 
 	@BeforeClass
 	public static void setup() {
@@ -71,5 +70,23 @@ public class AsctextApplicationTests {
 		String tailText = mergedText.substring(mergedText.length() - mergedText.length() % outUnit);
 		assertThat(result, is("A0a7"));
 		assertThat(tailText, is("B9z"));
+	}
+
+	@Test
+	public void test6() {
+		int outUnit = 1;
+		String result = mergedText.substring(0, mergedText.length() - mergedText.length() % outUnit);
+		String tailText = mergedText.substring(mergedText.length() - mergedText.length() % outUnit);
+		assertThat(result, is("A0a7B9z"));
+		assertThat(tailText, is(""));
+	}
+
+	@Test
+	public void test7() {
+		int outUnit = 9;
+		String result = mergedText.substring(0, mergedText.length() - mergedText.length() % outUnit);
+		String tailText = mergedText.substring(mergedText.length() - mergedText.length() % outUnit);
+		assertThat(result, is(""));
+		assertThat(tailText, is("A0a7B9z"));
 	}
 }
