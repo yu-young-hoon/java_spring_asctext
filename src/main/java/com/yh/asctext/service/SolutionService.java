@@ -19,20 +19,8 @@ public class SolutionService {
         ascText.setOriginText(text);
         ascText.setOutUnit(outUnit);
 
-        text = logic.XSS(text);
-
-        List<Character>[] divideText = logic.Divide(text);
-        List<Character> chars = divideText[0];
-        List<Character> numbers = divideText[1];
-        Collections.sort(chars, new SortStrategy());
-        Collections.sort(numbers);
-
-        String mergedText = logic.Merge(chars, numbers);
-        String result = mergedText.substring(0, mergedText.length() - mergedText.length() % ascText.getOutUnit());
-        String tailText = mergedText.substring(mergedText.length() - mergedText.length() % ascText.getOutUnit());
-
-        ascText.setResultText(result);
-        ascText.setTailText(tailText);
+        Logic logic = new Logic(ascText);
+        ascText = logic.filter().divide().sort().merge().getASCText();
 
         return ascText;
     }
